@@ -1,4 +1,8 @@
 DerelictBASS
 ============
 
-DerelictBASS is Derelict3 loader for BASS.
+DerelictBASS is a Derelict3 loader for BASS.
+
+https://github.com/aldacron/Derelict3
+http://www.un4seen.com/
+
