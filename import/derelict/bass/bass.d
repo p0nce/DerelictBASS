@@ -79,7 +79,8 @@ class DerelictBASSLoader : SharedLibLoader
             bindFunc(cast(void**)&BASS_SetDevice, "BASS_SetDevice");
             bindFunc(cast(void**)&BASS_GetDevice, "BASS_GetDevice");
             bindFunc(cast(void**)&BASS_Free, "BASS_Free");
-            bindFunc(cast(void**)&BASS_GetDSoundObject, "BASS_GetDSoundObject");
+			version (Derelict_OS_Windows)
+				bindFunc(cast(void**)&BASS_GetDSoundObject, "BASS_GetDSoundObject");
             bindFunc(cast(void**)&BASS_GetInfo, "BASS_GetInfo");
             bindFunc(cast(void**)&BASS_Update, "BASS_Update");
             bindFunc(cast(void**)&BASS_GetCPU, "BASS_GetCPU");
