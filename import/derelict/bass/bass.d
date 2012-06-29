@@ -54,6 +54,8 @@ private
 
     static if(Derelict_OS_Windows)
         enum libNames = "bass.dll";    
+	else static if (Derelict_OS_Mac)
+		enum libNames = "libbass.dylib";
     else
         static assert(0, "Need to implement BASS libNames for this operating system.");
 }
