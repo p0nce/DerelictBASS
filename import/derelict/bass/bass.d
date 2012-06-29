@@ -54,6 +54,8 @@ private
 
     static if(Derelict_OS_Windows)
         enum libNames = "bass.dll";    
+    else static if (Derelict_OS_Mac)
+        enum libNames = "libbass.dylib";
     else
         static assert(0, "Need to implement BASS libNames for this operating system.");
 }
@@ -65,6 +67,12 @@ class DerelictBASSLoader : SharedLibLoader
     {
         override void loadSymbols()
         {
+            /* specific-plateform binding functions */
+            version (Derelict_OS_Windows) {
+                bindFunc(cast(void**)&BASS_GetDSoundObject, "BASS_GetDSoundObject");
+                bindFunc(cast(void**)&BASS_SetEAXParameters, "BASS_SetEAXParameters");
+                bindFunc(cast(void**)&BASS_GetEAXParameters, "BASS_GetEAXParameters");
+            }
             bindFunc(cast(void**)&BASS_SetConfig, "BASS_SetConfig");
             bindFunc(cast(void**)&BASS_GetConfig, "BASS_GetConfig");
             bindFunc(cast(void**)&BASS_SetConfigPtr, "BASS_SetConfigPtr");
@@ -77,7 +85,6 @@ class DerelictBASSLoader : SharedLibLoader
             bindFunc(cast(void**)&BASS_SetDevice, "BASS_SetDevice");
             bindFunc(cast(void**)&BASS_GetDevice, "BASS_GetDevice");
             bindFunc(cast(void**)&BASS_Free, "BASS_Free");
-            bindFunc(cast(void**)&BASS_GetDSoundObject, "BASS_GetDSoundObject");
             bindFunc(cast(void**)&BASS_GetInfo, "BASS_GetInfo");
             bindFunc(cast(void**)&BASS_Update, "BASS_Update");
             bindFunc(cast(void**)&BASS_GetCPU, "BASS_GetCPU");
@@ -94,8 +101,6 @@ class DerelictBASSLoader : SharedLibLoader
             bindFunc(cast(void**)&BASS_Set3DPosition, "BASS_Set3DPosition");
             bindFunc(cast(void**)&BASS_Get3DPosition, "BASS_Get3DPosition");
             bindFunc(cast(void**)&BASS_Apply3D, "BASS_Apply3D");
-            bindFunc(cast(void**)&BASS_SetEAXParameters, "BASS_SetEAXParameters");
-            bindFunc(cast(void**)&BASS_GetEAXParameters, "BASS_GetEAXParameters");
             bindFunc(cast(void**)&BASS_MusicLoad, "BASS_MusicLoad");
             bindFunc(cast(void**)&BASS_MusicFree, "BASS_MusicFree");
             bindFunc(cast(void**)&BASS_SampleLoad, "BASS_SampleLoad");
