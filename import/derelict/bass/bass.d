@@ -189,7 +189,6 @@ shared static this()
 
 shared static ~this()
 {
-    if(SharedLibLoader.isAutoUnloadEnabled())
-        DerelictBASS.unload();
+    DerelictBASS.unload();
 }
 
