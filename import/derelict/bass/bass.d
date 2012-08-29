@@ -56,6 +56,8 @@ private
         enum libNames = "bass.dll";    
     else static if (Derelict_OS_Mac)
         enum libNames = "libbass.dylib";
+    else static if (Derelict_OS_Linux)
+        enum libNames = "libbass.so";
     else
         static assert(0, "Need to implement BASS libNames for this operating system.");
 }
