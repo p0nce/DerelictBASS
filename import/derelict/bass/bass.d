@@ -70,7 +70,7 @@ class DerelictBASSLoader : SharedLibLoader
         override void loadSymbols()
         {
             /* specific-plateform binding functions */
-            version (Derelict_OS_Windows) {
+            static if (Derelict_OS_Windows) {
                 bindFunc(cast(void**)&BASS_GetDSoundObject, "BASS_GetDSoundObject");
                 bindFunc(cast(void**)&BASS_SetEAXParameters, "BASS_SetEAXParameters");
                 bindFunc(cast(void**)&BASS_GetEAXParameters, "BASS_GetEAXParameters");
