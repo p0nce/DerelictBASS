@@ -1,5 +1,5 @@
 {
-    "name": "derelict-unofficial-bass",
+    "name": "derelict_extras-bass",
     "description": "A dynamic binding to the BASS library.",
     "homepage": "http://github.com/p0nce/DerelictBASS",
     "license": "Boost",
@@ -11,6 +11,6 @@
     "targetPath": "lib",
 
     "dependencies": {
-        "derelict-util": "~master"
+        "derelict-util": ">=0.9.3"
     }
 }
