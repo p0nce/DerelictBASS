@@ -56,6 +56,8 @@ private
         enum libNames = "bass.dll";    
     else static if (Derelict_OS_Mac)
         enum libNames = "libbass.dylib";
+    else static if (Derelict_OS_Linux)
+        enum libNames = "libbass.so";
     else
         static assert(0, "Need to implement BASS libNames for this operating system.");
 }
@@ -68,7 +70,7 @@ class DerelictBASSLoader : SharedLibLoader
         override void loadSymbols()
         {
             /* specific-plateform binding functions */
-            version (Derelict_OS_Windows) {
+            static if (Derelict_OS_Windows) {
                 bindFunc(cast(void**)&BASS_GetDSoundObject, "BASS_GetDSoundObject");
                 bindFunc(cast(void**)&BASS_SetEAXParameters, "BASS_SetEAXParameters");
                 bindFunc(cast(void**)&BASS_GetEAXParameters, "BASS_GetEAXParameters");
