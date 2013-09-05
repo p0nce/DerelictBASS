@@ -4,10 +4,12 @@
     "homepage": "https://github.com/p0nce/DerelictBASS",
     "license": "Boost",
     "authors": [
-        "ponce"
+        "ponce",
+        "h3r3tic",
+        "!!M"
     ],
 
-    "targetName": "DerelictCL",
+    "targetName": "DerelictBASS",
     "targetPath": "lib",
 
     "dependencies": {
