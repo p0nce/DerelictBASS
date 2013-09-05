@@ -1,16 +1,16 @@
 {
     "name": "derelict_extras-bass",
     "description": "A dynamic binding to the BASS library.",
-    "homepage": "http://github.com/p0nce/DerelictBASS",
+    "homepage": "https://github.com/p0nce/DerelictBASS",
     "license": "Boost",
     "authors": [
         "ponce"
     ],
 
-    "targetName": "DerelictBASS",
+    "targetName": "DerelictCL",
     "targetPath": "lib",
 
     "dependencies": {
-        "derelict-util": ">=0.9.3"
+        "derelict-util": "~master"
     }
 }
