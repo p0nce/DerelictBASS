@@ -188,9 +188,3 @@ shared static this()
 {
     DerelictBASS = new DerelictBASSLoader();
 }
-
-shared static ~this()
-{
-    DerelictBASS.unload();
-}
-
